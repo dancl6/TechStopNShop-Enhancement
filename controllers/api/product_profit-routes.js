@@ -43,6 +43,8 @@ router.get('/:id', (req, res) => {
             res.status(500).json({ message: 'No profit data found with this id' })
             return
         }
+        console.log("i am at db Product Data")
+        console.log(dbProfitData)
         res.json(dbProfitData)
     })
     .catch(err => res.status(500).json(err));
