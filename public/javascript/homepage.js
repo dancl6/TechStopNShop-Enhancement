@@ -221,6 +221,7 @@ var shoppingCart = (function() {
                 // } else {
                   if(sumTotCart > data[indexFor].product.stock) {
                     console.log("Not enough items in inventory!")
+                    $("#myModal").modal()
                   } else {
                   shoppingCart.addItemToCart(name, price, 1);
                   displayCart();
