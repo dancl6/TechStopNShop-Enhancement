@@ -29,6 +29,66 @@ function displayPurchase () {
     `;
   }
 
+  async function getProductInfo(purchaseName, purchaseCount) {
+    await fetch(`/api/profits`, {
+      method: 'GET',
+    }).then((response) => response.json())
+    .then((data)=> {
+      // for(var item in data) {
+        // if(purchaseName === data) {
+          console.log("i am at data in checkout")
+          console.log(data)
+          for(var j = 0; j < data.length; j++) {
+            console.log("product name is :", data[j].product.product_name)
+            console.log("purchase name is :", purchaseName)
+            console.log("data id is:", data[j].id)
+            if(data[j].product.product_name === purchaseName) {
+              var idProduct = data[j].id
+
+              fetch(`/api/profits`, {
+                method: 'GET',
+              }).then((response) => response.json())
+              .then((data)=> {
+                for(var j = 0; j < data.length; j++) {
+                  console.log("product name is :", data[j].product.product_name)
+                  console.log("purchase name is :", purchaseName)
+                  console.log("data id is:", data[j].id)
+                  console.log("i am at sold for")
+                  if(data[j].product.product_name === purchaseName) {
+                    var idProduct = data[j].id
+                    var numberSold = data[j].num_sold
+                    console.log("i am at num sold", data)
+               
+                    var num_sold = numberSold + purchaseCount
+                    
+                fetch(`/api/products/sold/${idProduct}`, {
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    num_sold
+                  }),
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                })
+                
+              }};
+
+
+              })
+
+
+          // var sumTotCart = 1 + cart[item].count
+            }}
+      // console.log("cart item count is : ", cart[item].count)
+      // var sumTotCart = 1 + cart[item].count
+        // }}
+      })
+}
+
+  for(var i in purchase) {
+    getProductInfo(purchase[i].name, purchase[i].count)
+}
+
   let grandTotal = 0;
   for (let i = 0; i < total.length; i ++) {
     grandTotal += total[i];
