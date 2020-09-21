@@ -201,15 +201,15 @@ var shoppingCart = (function() {
             console.log(data)
             for(var item in cart) {
               if(cart[item].name === name) {
-            console.log("cart item count is : ", cart[item].count)
-            var sumTotCart = 1 + cart[item].count
+                console.log("cart item count is : ", cart[item].count)
+                var sumTotCart = 1 + cart[item].count
               }}
             // console.log("sumCount is :", sumCount)
             console.log("stock is :",data[0].product.stock )
             // for(var product in data) {
             for(let i = 0; i < data.length; i++){
-              console.log("product is :")
-              console.log(data[i].product.product_name)
+                console.log("product is :")
+                console.log(data[i].product.product_name)
               if(name === data[i].product.product_name){
                 var indexFor = i
               }
@@ -224,8 +224,8 @@ var shoppingCart = (function() {
                     console.log("Not enough items in inventory!")
                     $("#myModal").modal()
                   } else {
-                  shoppingCart.addItemToCart(name, price, 1);
-                  displayCart();
+                    shoppingCart.addItemToCart(name, price, 1);
+                    displayCart();
                   }
                 })}
            
