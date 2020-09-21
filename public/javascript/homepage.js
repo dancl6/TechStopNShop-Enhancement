@@ -214,12 +214,13 @@ var shoppingCart = (function() {
                 var indexFor = i
               }
             }
+            console.log("sum tot cart is :", sumTotCart)
                 // if(count > data[i].product.stock){
     
                 //   console.log("There are not enough items in inventory!")
                   
                 // } else {
-                  if(sumTotCart > data[indexFor].product.stock) {
+                  if(sumTotCart > data[indexFor].product.stock || data[indexFor].product.stock === 0) {
                     console.log("Not enough items in inventory!")
                     $("#myModal").modal()
                   } else {
