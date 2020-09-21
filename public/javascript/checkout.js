@@ -69,6 +69,25 @@ function displayPurchase () {
                   headers: {
                     'Content-Type': 'application/json'
                   }
+                }).then((data)=>{
+
+                  fetch(`/api/products/${idProduct}`, {
+                    method: 'GET',
+                  }).then((response) => response.json())
+                  .then((data)=> {
+                  console.log("i am at products id", data.stock)
+                  var stock = data.stock - purchaseCount
+                  console.log("stock is :", stock)
+                  fetch(`/api/products/${idProduct}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                      stock
+                    }),
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                  });
+                })
                 })
                 
               }};
