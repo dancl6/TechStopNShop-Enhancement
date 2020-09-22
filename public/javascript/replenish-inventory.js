@@ -6,9 +6,9 @@ async function editFormHandler2(event) {
         .then((data)=> {
            for(let i = 0; i < data.length; i++){
                console.log("i am at replenish",data[i].product.stock)
-            if(data[i].product.stock < 5 ) {
+            if(data[i].product.stock < 3 ) {
                 let id = data[i].id
-                let stock = 10
+                let stock = 5
                 fetch(`/api/products/${id}`, {
                     method: 'PUT',
                     body: JSON.stringify({
