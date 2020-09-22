@@ -23,7 +23,7 @@ async function editFormHandler2(event) {
 
            }
       })  
-      document.location.replace('/');
+      document.location.replace('/profit');
 }
 
 // getProductInfo()
