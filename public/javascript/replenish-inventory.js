@@ -1,5 +1,4 @@
 async function editFormHandler2(event) {
-// async function getProductInfo() {
       await fetch(`/api/profits`, {
         method: 'GET',
         }).then((response) => response.json())
@@ -22,9 +21,8 @@ async function editFormHandler2(event) {
             } else {}
 
            }
-      })  
+        })  
       document.location.replace('/profit');
 }
 
-// getProductInfo()
 document.querySelector('#replenish-inventory').addEventListener('click', editFormHandler2);

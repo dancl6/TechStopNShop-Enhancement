@@ -37,51 +37,24 @@ var shoppingCart = (function() {
     // Add to cart
     obj.addItemToCart = function(name, price, count) {
 
-    console.log("i am at line 40 and count is :",count)
+        console.log("i am at line 40 and count is :",count)
 
   
-              for(var item in cart) {
-                if(cart[item].name === name) {
-                  // console.log("I am at line 74 and count is:", count," and cart item count is :", cart[item].count, "product stock is:", data[i].product.stock)
-                  // var sumCount = count + cart[item].count;
-                  // var testStock = data[i].product.stock
-                  // console.log("sum count is :")
-                  // console.log(sumCount)
-                  // if(sumCount > data[i].product.stock) {
-                  //   console.log("There are not enough items in inventory!")
-                  // } else {
-                  cart[item].count ++;
-                  // console.log("number of items in cart is:" )
-                  // console.log(cart[item].count)
-                  saveCart();
-                  return;
-                }
-              }
-              // }
-              
-              // if(sumCount <= data[indexFor].product.stock) {
+        for(var item in cart) {
+          if(cart[item].name === name) {
+            cart[item].count ++;
+            saveCart();
+            return;
+          }
+        }
+        var item = new Item(name, price, count);
+        cart.push(item);
+        saveCart();
+  
+    }
 
-              var item = new Item(name, price, count);
-              cart.push(item);
-              saveCart();
-              // } 
-            }
-
-            // console.log("i am at test stock and it is: ", testStock)
-
-          // }
-      //   }
-
-      // })
-      // }
-
-    //  let temp = getProductInfo(1)
 
       console.log("i am at temp")
-      // console.log(temp)
-
-
-    // }
     // Set count from item
     obj.setCountForItem = function(name, count) {
       for(var i in cart) {
@@ -181,55 +154,34 @@ var shoppingCart = (function() {
     var price = Number($(this).data('price'));
 
     async function getProductInfo() {
-      // await fetch(`/api/products/${id}`, {
-        // await fetch(`/api/profits/${id}`, {
         await fetch(`/api/profits`, {
           method: 'GET',
-          // body: JSON.stringify({
-          
-          // }),
-          // headers: {
-          //   'Content-Type': 'application/json'
-          // }
         }).then((response) => response.json())
           .then((data)=> {
-            // console.log("data is...", data);
-            // console.log("number in inventory is...", data.product.stock)
-            console.log("count is :")
-            // console.log(count)
-            console.log("data is :")
-            console.log(data)
             for(var item in cart) {
               if(cart[item].name === name) {
-                console.log("cart item count is : ", cart[item].count)
                 var sumTotCart = 1 + cart[item].count
               }}
             // console.log("sumCount is :", sumCount)
             console.log("stock is :",data[0].product.stock )
             // for(var product in data) {
             for(let i = 0; i < data.length; i++){
-                console.log("product is :")
-                console.log(data[i].product.product_name)
               if(name === data[i].product.product_name){
                 var indexFor = i
               }
             }
             console.log("sum tot cart is :", sumTotCart)
-                // if(count > data[i].product.stock){
-    
-                //   console.log("There are not enough items in inventory!")
-                  
-                // } else {
-                  if(sumTotCart > data[indexFor].product.stock || data[indexFor].product.stock === 0) {
-                    console.log("Not enough items in inventory!")
-                    $("#myModal").modal()
-                  } else {
-                    shoppingCart.addItemToCart(name, price, 1);
-                    displayCart();
-                  }
-                })}
+
+            if(sumTotCart > data[indexFor].product.stock || data[indexFor].product.stock === 0) {
+              console.log("Not enough items in inventory!")
+              $("#myModal").modal()
+            } else {
+              shoppingCart.addItemToCart(name, price, 1);
+              displayCart();
+            }
+          })}
            
-                  getProductInfo()
+  getProductInfo()
 
  });
   
@@ -261,35 +213,7 @@ var shoppingCart = (function() {
     $('.total-count').html(shoppingCart.totalCount());
   }
   
-  // Delete item button
-  
-  // $('.show-cart').on("click", ".delete-item", function(event) {
-  //   var name = $(this).data('name')
-  //   shoppingCart.removeItemFromCartAll(name);
-  //   displayCart();
-  // })
-  
-  
-  // -1
-  // $('.show-cart').on("click", ".minus-item", function(event) {
-  //   var name = $(this).data('name')
-  //   shoppingCart.removeItemFromCart(name);
-  //   displayCart();
-  // })
-  // +1
-  // $('.show-cart').on("click", ".plus-item", function(event) {
-  //   var name = $(this).data('name')
-  //   shoppingCart.addItemToCart(name);
-  //   displayCart();
-  // })
-  
-  // Item count input
-  // $('.show-cart').on("change", ".item-count", function(event) {
-  //    var name = $(this).data('name');
-  //    var count = Number($(this).val());
-  //   shoppingCart.setCountForItem(name, count);
-  //   displayCart();
-  // });
+
   
   displayCart();
   
