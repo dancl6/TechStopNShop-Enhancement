@@ -22,7 +22,7 @@ async function editFormHandler2(event) {
 
            }
         })  
-      document.location.replace('/profit');
+      document.location.replace('/');
 }
 
 document.querySelector('#replenish-inventory').addEventListener('click', editFormHandler2);
