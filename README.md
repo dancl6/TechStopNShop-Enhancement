@@ -28,7 +28,7 @@
     npm start
     npm run seed
 
-  Otherwise, visit our deployment [here](https://arcane-anchorage-18356.herokuapp.com/)
+  Otherwise, visit our deployment [here](https://fathomless-plains-18692.herokuapp.com/)
 
   ## License
 
