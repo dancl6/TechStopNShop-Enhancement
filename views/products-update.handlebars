@@ -1,14 +1,26 @@
 <div class="navbar-nav mr-auto">
       <div class="nav-item active">
         <h1 class="nav-link text-center border-bottom">Update Inventory Page</h1>
-        <input name="inventory" class="form-control" id="inventory-text" aria-describedby="emailHelp" placeholder="Enter # In Inventory">
-        <button type="submit" class="btn btn-primary" id="inventory-submit">Submit</button>
+        <div class="row">
+        <div class="col-lg-6 offset-lg-3 ">
+        <input name="inventory" class="form-control d-flex justify-content-center" id="inventory-text" aria-describedby="emailHelp" placeholder="Enter # In Inventory">
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary " id="inventory-submit">Submit</button>
+        </div>
+        </div>
+        </div>
       </div>
       <div>{{id}}</div>
       <div class="nav-item active">
         {{!-- <h1 class="nav-link text-center border-bottom">Update Inventory Page</h1> --}}
+        <div class="row">
+        <div class="col-lg-6 offset-lg-3 ">
         <input name="sold" class="form-control" id="sold-text" aria-describedby="emailHelp" placeholder="Enter # Sold">
+        <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-primary" id="sold-submit">Submit</button>
+        </div>
+        </div>
+        </div>
       </div>
 
 </div>
