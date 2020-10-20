@@ -29,6 +29,8 @@
     npm run seed
 
   Otherwise, visit our deployment [here](https://fathomless-plains-18692.herokuapp.com/)
+  
+![Tech Stop N Shop Image](https://github.com/dancl6/TechStopNShop-Enhancement/blob/master/public/images/TechStopShopEnhancementPic.png?raw=true)
 
   ## License
 
