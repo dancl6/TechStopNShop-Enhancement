@@ -198,6 +198,12 @@ router.get('/', (req, res) => {
         });
 });
 
+// Get localStorage value for question 1
+router.get('/localStorage/:value', (req,res) => {    
+    res.render('question2', {
+        value
+    })
+})
 
 //Update inventory page render
 router.get('/update-inventory', isAuth, (req, res) => {
@@ -206,7 +212,15 @@ router.get('/update-inventory', isAuth, (req, res) => {
 
 //Checkout page render
 router.get('/checkout', (req, res) => {
-    res.render('checkout');
+    let loginStatus;
+    if (typeof req.session.passport != 'undefined') {
+        loginStatus = req.session.passport.user.id;
+    } else {
+        loginStatus = false;
+    }
+    res.render('checkout', {
+        loggedIn: loginStatus
+    });
 });
 
 //Search 

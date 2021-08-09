@@ -18,6 +18,8 @@ router.get('/logout', (req, res) => {
     })
 });
 
+
+
 //GET single user
 router.get('/:id', (req, res) => {
     User.findOne({
